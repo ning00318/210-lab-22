@@ -105,8 +105,6 @@ public:
             return;
         }
 
-        if (!head) return; // Empty list
-        
         Node* temp = head;
         for (int i = 0; i < position && temp; ++i)
             temp = temp->next;
@@ -115,6 +113,22 @@ public:
             cout << "Position exceeds list size. Node not inserted.\n";
             return;
         }
+
+        if (!head) return; // Empty list
+        
+        if (temp->prev) {
+            temp->prev->next = temp->next;
+        } else {
+            head = temp->next; // Deleting the head
+        }
+
+        if (temp->next) {
+            temp->next->prev = temp->prev;
+        } else {
+            tail = temp->prev; // Deleting the tail
+        }
+
+        delete temp;
     }
 
     void print() {
