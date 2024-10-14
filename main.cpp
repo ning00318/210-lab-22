@@ -133,11 +133,14 @@ public:
 
     void pop_front() {
         if(!head) return;
-            
+        else
+            delete_pos(head);
     }
 
     void pop_back() {
         if(!tail) return;
+        else
+            delete_pos(tail);
     }
 
     void print() {
