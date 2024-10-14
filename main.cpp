@@ -1,3 +1,5 @@
+// COMSC-210 | Lab 22: Upgrade the DLL Class | Nina Tsao
+
 #include <iostream>
 using namespace std;
 
@@ -76,6 +78,7 @@ public:
         temp->next = newNode;
     }
 
+    // update the name
     void delete_val(int value) {
         if (!head) return; // Empty list
         
@@ -131,22 +134,25 @@ public:
         delete temp;
     }
 
+    // delete the head node
     void pop_front() {
         if(!head) return;
         else
             delete_pos(0);
     }
 
+    // delete the tail node
     void pop_back() {
         int position = 0;
-
+        Node* temp = head;
+        
         if(!tail) return;
         else {
-            Node* temp = head;
             while (temp && temp->next) {
                 temp = temp->next;
                 position++;
             }
+
             delete_pos(position);
         }
     }
@@ -194,6 +200,12 @@ int main() {
 
     cout << "List backward: ";
     list.print_reverse();
+
+    cout << "Pop the front: ";
+    list.pop_front();
+
+    cout << "Pop the back: ";
+    list.pop_back();
 
     cout << "Deleting list, then trying to print.\n";
     list.~DoublyLinkedList();
