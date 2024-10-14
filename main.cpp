@@ -136,24 +136,24 @@ public:
 
     // delete the head node
     void pop_front() {
-        if(!head) return;
+        if(!head) return;   // check if the head is empty
         else
             delete_pos(0);
     }
 
     // delete the tail node
     void pop_back() {
-        int position = 0;
         Node* temp = head;
+        int position = 0;
         
-        if(!tail) return;
+        if(!tail) return;   // check if the tail is empty
         else {
-            while (temp && temp->next) {
+            while (temp && temp->next) {    // while(temp is not empty && temp->next is not empty)
                 temp = temp->next;
                 position++;
             }
 
-            delete_pos(position);
+            delete_pos(position);   // delete the last position
         }
     }
 
@@ -211,6 +211,10 @@ int main() {
 
     cout << "Pop the back: ";
     list.pop_back();
+    list.print();
+
+    cout << "Delete position 1: ";
+    list.delete_pos(1);
     list.print();
 
     cout << "Deleting list, then trying to print.\n";
