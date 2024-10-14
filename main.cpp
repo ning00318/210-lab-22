@@ -201,11 +201,17 @@ int main() {
     cout << "List backward: ";
     list.print_reverse();
 
+    cout << "Delete position 1: ";
+    list.delete_pos(1);
+    list.print();
+
     cout << "Pop the front: ";
     list.pop_front();
+    list.print();
 
     cout << "Pop the back: ";
     list.pop_back();
+    list.print();
 
     cout << "Deleting list, then trying to print.\n";
     list.~DoublyLinkedList();
