@@ -134,13 +134,21 @@ public:
     void pop_front() {
         if(!head) return;
         else
-            delete_pos(head);
+            delete_pos(0);
     }
 
     void pop_back() {
+        int position = 0;
+
         if(!tail) return;
-        else
-            delete_pos(tail);
+        else {
+            Node* temp = head;
+            while (temp && temp->next) {
+                temp = temp->next;
+                position++;
+            }
+            delete_pos(position);
+        }
     }
 
     void print() {
